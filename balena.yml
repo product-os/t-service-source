@@ -1,24 +1,24 @@
 type: type-product-os-t-type-source@1.0.3
 name: Service source
-version: 2.0.0
+version: 1.0.1
 data:
   $transformer: {}
   schema:
-      type: object
-      required: ['data']
-      properties:
-        data:
-          type: object
-          properties:
-            $transformer:
-              type: object
-              properties:
-                mergeable:
-                  description: PRs to instances of this type can be merged IF...
-                  type: boolean
-                  readOnly: true
-                  default: false
-                  $$formula: |-
+    type: object
+    required: [ 'data' ]
+    properties:
+      data:
+        type: object
+        properties:
+          $transformer:
+            type: object
+            properties:
+              mergeable:
+                description: PRs to instances of this type can be merged IF...
+                type: boolean
+                readOnly: true
+                default: false
+                $$formula: |
                   EVERY(VALUES(contract.data.platforms), "image") &&
                   contract.data.$transformer.backflow &&
                   contract.data.$transformer.backflow.filter(
