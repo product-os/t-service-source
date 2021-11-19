@@ -1,2 +1,2 @@
-# type-source-template
-Template repository for writing a type-source
+# t-service-source
+Service source type
