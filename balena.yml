@@ -1,0 +1,39 @@
+type: type-product-os-t-type-source@1.0.3
+name: Type name # 👈 change this
+version: 0.0.1
+data:
+  # adding this line to a contract enables Transformers to pick them up
+  $transformer: {}
+  # this is a JSONSchema describing instances of this type. You can constraint `data` as well as top level fields like `name`
+  schema:
+      type: object
+      required: ['data']
+      properties:
+        data:
+          type: object
+          properties:
+            myProp:             # 👈 change this. This is just an example how you can declare your own data properties
+              type: string      # if you need anything more complex, have a look at https://json-schema.org/
+              pattern: .*my.*
+            $transformer:
+              type: object
+              properties:
+                mergeable:
+                  description: PRs to instances of this type can be merged IF...
+                  type: boolean
+                  $$formula: 'true'  # 👈 change this if you want to specify a rule, when you consider an instance of this type "good".
+                                     #
+                                     # E.g. if you compile something and record the number of warnings it could be `contract.data.warnings < 8` 
+                                     # to only allow merging PRs creating instances if this type when the compilation produced less than 8 warnings.
+                                     #
+                                     # The formula is javascript where `contract` points to the instance of the contract and
+                                     # you can use functions from https://formulajs.info/functions/
+                                     #
+                                     # You can also refer to things that were produced from this contract (e.g. node-module-source -> node-module) like this
+                                     #
+                                     #    var res=FILTER(contract.data.$transformer.backflow, function(c){return c.type.startsWith("node-module@1")});
+                                     #    res.length>0 && EVERY(res,"data.success")
+                                     #
+                                     # as you can see, this can be a multi-line string
+                  readOnly: true
+                  default: false
