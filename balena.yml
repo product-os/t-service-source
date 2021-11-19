@@ -16,14 +16,15 @@ data:
                 mergeable:
                   description: PRs to instances of this type can be merged IF...
                   type: boolean
-                  $$formula: EVERY(VALUES(contract.data.platforms), "image") &&
-									contract.data.$transformer.backflow &&
-									contract.data.$transformer.backflow.filter(
-										function(b){
-											return b &&
-														 b.type.startsWith("t-product-os-test-run") &&
-														 b.data.data.success
-										}
-										).length > 0
                   readOnly: true
                   default: false
+                  $$formula: |-
+                  EVERY(VALUES(contract.data.platforms), "image") &&
+                  contract.data.$transformer.backflow &&
+                  contract.data.$transformer.backflow.filter(
+                    function(b){
+                      return b &&
+                              b.type.startsWith("t-product-os-test-run") &&
+                              b.data.data.success
+                    }
+                  ).length > 0
