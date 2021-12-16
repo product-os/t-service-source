@@ -9,7 +9,11 @@ data:
     properties:
       data:
         type: object
+        required: [ 'fragment' ]
         properties:
+          # this is a contract fragment, because a service-source could transform into anything. E.g. service or transformer
+          fragment:
+            type: object
           $transformer:
             type: object
             properties:
