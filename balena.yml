@@ -1,6 +1,6 @@
 type: type-product-os-t-type-source@1.2.1
 name: Service source
-version: 1.2.0
+version: 1.3.0
 data:
   $transformer: {}
   schema:
@@ -9,11 +9,21 @@ data:
     properties:
       data:
         type: object
-        required: [ 'fragment' ]
+        required: [ 'fragment', 'platforms' ]
         properties:
+
           # this is a contract fragment, because a service-source could transform into anything. E.g. service or transformer
           fragment:
             type: object
+
+          platforms:
+            type: object
+            minProperties: 1
+            patternProperties:
+              .*/.*:
+                type: object
+            additionalProperties: false
+
           $transformer:
             type: object
             properties:
