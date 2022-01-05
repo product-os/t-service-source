@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 1.0.1 (2021-11-19)
 
+# v1.3.0
+## (2022-01-05)
+
+* explicitely require platform(s) to be specified [Martin Rauscher]
+
 # v1.2.0
 ## (2021-12-16)
 
