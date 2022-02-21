@@ -39,7 +39,7 @@ data:
                     function(b){
                       return b &&
                               b.type.startsWith("type-product-os-t-test-run@") &&
-                              b.data.data.success
+                              b.data.success
                     }
                   ).length > 0
 slug: type-product-os-t-type-source-product-os-t-service-source
