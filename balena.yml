@@ -33,6 +33,5 @@ data:
                 readOnly: true
                 default: false
                 $$formula: |
-                  EVERY(VALUES(contract.data.platforms), "image") &&
-                  contract.data.$transformer.backflow
+                  EVERY(VALUES(contract.data.platforms), "image")
 slug: type-product-os-t-type-source-product-os-t-service-source
