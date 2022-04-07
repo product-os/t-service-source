@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 1.0.1 (2021-11-19)
 
+# v1.5.1
+## (2022-04-07)
+
+* Remove backflow requirement while debugging service-source schema mismatch [Thomas Manning]
+
 # v1.5.0
 ## (2022-04-07)
 
