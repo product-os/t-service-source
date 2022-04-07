@@ -1,6 +1,6 @@
 type: type-product-os-t-type-source@1.2.1
 name: Service source
-version: 1.4.0
+version: 1.5.0
 data:
   $transformer: {}
   schema:
@@ -34,12 +34,5 @@ data:
                 default: false
                 $$formula: |
                   EVERY(VALUES(contract.data.platforms), "image") &&
-                  contract.data.$transformer.backflow &&
-                  contract.data.$transformer.backflow.filter(
-                    function(b){
-                      return b &&
-                              b.type.startsWith("type-product-os-t-test-run@") &&
-                              b.data.success
-                    }
-                  ).length > 0
+                  contract.data.$transformer.backflow
 slug: type-product-os-t-type-source-product-os-t-service-source

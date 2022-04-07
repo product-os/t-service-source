@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 1.0.1 (2021-11-19)
 
+# v1.5.0
+## (2022-04-07)
+
+* Remove test requirement from mergeable until t-tester is fixed [Thomas Manning]
+
 # v1.4.0
 ## (2022-02-21)
 
